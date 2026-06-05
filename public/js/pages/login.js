@@ -13,6 +13,6 @@ loginButton.addEventListener("click", async () => {
 
 checkAuthState((user) => {
   if (user) {
-    window.location.href = "reports.html";
+    window.location.href = "dashboard.html";
   }
 });
