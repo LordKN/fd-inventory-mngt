@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Báo cáo hàng ngày - Quản lí thiết bị phòng cháy chữa cháy</title>
+    <link rel="stylesheet" href="css/daily-check.css" />
+  </head>
+  <body>
+    <main class="form-card">
+      <h1>Kiểm tra hàng ngày</h1>
+
+      <form id="dailyCheckForm">
+        <div class="top-actions">
+          <button type="button">Báo cáo cũ</button>
+          <button type="button" id="logoutBtn">Đăng xuất</button>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label>Chọn xe</label>
+            <select id="vehicle" name="vehicle" required>
+              <option value="">-- Chọn xe --</option>
+              <option value="Ziegler">Xe Ziegler</option>
+              <option value="Rosenbauer">Xe Rosenbauer</option>
+              <option value="Oshkosh">Xe Oshkosh</option>
+              <option value="Ambulance">Xe cứu thương</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Trạng thái</label>
+            <select id="status" name="status" required>
+              <option value="">-- Chọn trạng thái --</option>
+              <option value="good">Tốt</option>
+              <option value="needs_maintenance">Cần kiểm tra</option>
+              <option value="out_of_order">Hỏng</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label>Chú thích</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+          </div>
+        </div>
+      </form>
+      <button type="submit" form="dailyCheckForm" id="submitBtn">
+        Gửi báo cáo
+      </button>
+    </main>
+
+    <script type="module" src="js/pages/daily-check.js"></script>
+  </body>
+</html>
