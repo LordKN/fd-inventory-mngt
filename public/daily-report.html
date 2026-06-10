@@ -10,46 +10,399 @@
     <main class="form-card">
       <h1>Kiểm tra hàng ngày</h1>
 
-      <form id="dailyCheckForm">
-        <div class="top-actions">
-          <a href="old-daily-report.html"
-            ><button type="button">Báo cáo cũ</button></a
-          >
-          <button type="button" id="logoutBtn">Đăng xuất</button>
-        </div>
+      <form id="dailyReportForm">
+        <label>Ngày</label>
+        <input type="date" id="date" required />
 
-        <div class="form-grid">
-          <div class="field">
-            <label>Chọn xe</label>
-            <select id="vehicle" name="vehicle" required>
-              <option value="">-- Chọn xe --</option>
-              <option value="Ziegler">Xe Ziegler</option>
-              <option value="Rosenbauer">Xe Rosenbauer</option>
-              <option value="Oshkosh">Xe Oshkosh</option>
-              <option value="Ambulance">Xe cứu thương</option>
-            </select>
-          </div>
+        <label>Thời gian</label>
+        <input type="time" id="time" required />
 
-          <div class="field">
-            <label>Trạng thái</label>
-            <select id="status" name="status" required>
-              <option value="">-- Chọn trạng thái --</option>
-              <option value="good">Tốt</option>
-              <option value="needs_maintenance">Cần kiểm tra</option>
-              <option value="out_of_order">Hỏng</option>
-            </select>
-          </div>
+        <label>Địa điểm</label>
+        <input type="text" id="location" required />
 
-          <div class="field">
-            <label>Chú thích</label>
-            <textarea id="notes" name="note" rows="4"></textarea>
-          </div>
+        <label>Người kiểm tra</label>
+        <input type="text" id="inspector" required />
 
-          <div class="field">
-            <label>Ảnh (tùy chọn)</label>
-            <input type="file" id="photo" name="photo" accept="image/*" />
-          </div>
-        </div>
+        <label>Đơn vị phối hợp kiểm tra</label>
+        <input type="text" id="unit" />
+
+        <h2>I. Quy định về hệ thống biển báo</h2>
+
+        <table>
+          <tr>
+            <th>STT</th>
+            <th>Nội dung</th>
+            <th>Đánh giá</th>
+            <th>Ghi chú</th>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>Sơ đồ/biển chỉ dẫn thoát nạn khu vực nhà ga</td>
+            <td>
+              <select name="item1Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item1Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>
+              Tình trạng hệ thống biển báo, hướng dẫn trong nhà ga rõ ràng,
+              không bị mờ
+            </td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>
+              Các bảng hướng dẫn lối thoát hiểm EXIT tại các khu vực rõ ràng,
+              không bị che khuất
+            </td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>Các đèn thoát hiểm EXIT trong khu vực nhà ga đều sáng</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>
+              Hệ thống đèn chiếu sáng sự cố, khẩn cấp (EMERGENCY) đều sáng
+            </td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+        </table>
+
+        <h2>II. Quy định an toàn PCCC và vệ sinh</h2>
+        <table>
+          <tr>
+            <th>STT</th>
+            <th>Nội dung</th>
+            <th>Đánh giá</th>
+            <th>Ghi chú</th>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>
+              Khu vực nhà ga có bố trí các bảng Nội quy PCCC, Tiêu lệnh PCCC
+            </td>
+            <td>
+              <select name="item1Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item1Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>Hệ thống đầu báo cháy qua màn hình giám sát</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Hệ thống chữa cháy tự động</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>
+              Các đơn vị hoạt động trong nhà ga có các số điện thoại cần thiết
+              khi xảy ra sự cố:
+            </td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>4a</td>
+            <td>Trực ban trưởng sân bay</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>4b</td>
+            <td>Đội cứu hỏa khẩn nguy</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>Các bình chữa cháy được trang bị đầy đủ, còn hạn sử dụng</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>
+              Các bình chữa cháy có tem kiểm định và thẻ kiểm tra bình định kỳ
+            </td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>Các bình chữa cháy đủ áp suất, không bị tụt áp</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>
+              Các bình chữa cháy được bố trí tại các vị trí dễ thấy, dễ lấy, dễ
+              tiếp cận.
+            </td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>
+              Hàng hóa trong các kho được xếp gọn gàng, đảm bảo thông thoáng
+              cách trần nhà 0.5m.
+            </td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>10</td>
+            <td>Lối đi trong kho thông thoáng</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>11</td>
+            <td>Các tủ điện, tủ PCCC không bị che khuất</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>12</td>
+            <td>Không có nhân viên hút thuốc trong nhà ga</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>13</td>
+            <td>Không để các chất dễ cháy gần cầu chì, táp lô điện</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>14</td>
+            <td>Các loại xe đẩy hành lí sắp xếp gọn gàng</td>
+            <td>
+              <select name="item2Rating">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option value="FU">F/U</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td>
+              <input type="text" name="item2Note" />
+            </td>
+          </tr>
+        </table>
       </form>
       <button type="submit" form="dailyCheckForm" id="submitBtn">
         Gửi báo cáo
