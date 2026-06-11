@@ -17,7 +17,7 @@ import {
   getDownloadURL,
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-storage.js";
 */
-const form = document.getElementById("dailyCheckForm");
+const form = document.getElementById("dailyReportForm");
 
 let currentUser = null;
 
@@ -33,35 +33,33 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   try {
-    const vehicle = document.getElementById("vehicle").value;
-    const status = document.getElementById("status").value;
-    const note = document.getElementById("notes").value;
-    const photoFile = document.getElementById("photo").files[0];
+    const checklistRows = document.querySelectorAll(".checklist-row");
+    const checklist = [];
 
-    let photoURL = null;
+    checklistRows.forEach((row) => {
+      checklist.push({
+        itemNo: row.dataset.itemNo,
+        section: row.dataset.section,
+        content: row.querySelector(".item-content").textContent.trim(),
+        rating: row.querySelector(".rating").value,
+        note: row.querySelector(".note")?.value.trim() || "",
+      });
+    });
 
-    /*
-    if (photoFile) {
-      const photoRef = ref(
-        storage,
-        `daily-check-photos/${Date.now()}-${photoFile.name}`,
-      );
+    await addDoc(collection(db, "daily-reports"), {
+      date: document.getElementById("date").value,
+      time: document.getElementById("time").value,
+      locatiobn: document.getElementById("location").value.trim(),
+      inspector: document.getElementById("inspector").value.trim(),
+      unit: document.getElementById("unit").value.trim(),
 
-      await uploadBytes(photoRef, photoFile);
-      photoURL = await getDownloadURL(photoRef);
-    }
-    */
-    await addDoc(collection(db, "daily-checks"), {
-      vehicle,
-      status,
-      note,
-      photoURL,
+      checklist,
+
       createdAt: serverTimestamp(),
-      date: new Date().toISOString().split("T")[0],
       createdBy: currentUser.email,
     });
 
-    alert("Báo cáo đã được lưu thành công!");
+    alert("Báo cáo được lưu thành công!");
     form.reset();
   } catch (error) {
     console.error("Save report error:", error);
