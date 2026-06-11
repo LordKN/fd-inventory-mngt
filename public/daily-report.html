@@ -11,20 +11,63 @@
       <h1>Kiểm tra hàng ngày</h1>
 
       <form id="dailyReportForm">
-        <label>Ngày</label>
-        <input type="date" id="date" required />
+        <div class="header-box">
+          <div class="report-info">
+            <p>
+              <strong>- Ngày:</strong> <input type="date" id="date" required />
+            </p>
+            <p>
+              <strong>- Thời gian:</strong>
+              <input type="time" id="time" required />
+            </p>
+            <p>
+              <strong>- Địa điểm:</strong>
+              <input type="text" id="location" required />
+            </p>
 
-        <label>Thời gian</label>
-        <input type="time" id="time" required />
+            <p><strong>- Người kiểm tra</strong></p>
+            <textarea id="inspector" rows="2" required></textarea>
 
-        <label>Địa điểm</label>
-        <input type="text" id="location" required />
+            <p><strong>- Đơn vị phối hợp kiểm tra:</strong></p>
+            <textarea id="unit" rows="2"></textarea>
+          </div>
 
-        <label>Người kiểm tra</label>
-        <input type="text" id="inspector" required />
-
-        <label>Đơn vị phối hợp kiểm tra</label>
-        <input type="text" id="unit" />
+          <table class="rating-guide">
+            <tr>
+              <th>Đánh giá</th>
+              <th>Giải thích ý nghĩa</th>
+            </tr>
+            <tr>
+              <td>Y</td>
+              <td>
+                <strong>Đáp ứng:</strong> Tuân thủ hoàn toàn các tiêu chuẩn,
+                khuyến cáo thực hành
+              </td>
+            </tr>
+            <tr>
+              <td>N</td>
+              <td>
+                <strong>Không đáp ứng:</strong> Không tuân thủ các tiêu chuẩn,
+                khuyến cáo thực hành
+              </td>
+            </tr>
+            <tr>
+              <td>F/U</td>
+              <td>
+                <strong>Tiếp tục theo dõi:</strong> Tiếp tục được khai thác,
+                nhưng phải có đánh giá, theo dõi và có các hành động khắc phục
+                trong tương lai
+              </td>
+            </tr>
+            <tr>
+              <td>N/A</td>
+              <td>
+                <strong>Không kiểm tra:</strong> Nội dung kiểm tra không có cơ
+                sở để đánh giá
+              </td>
+            </tr>
+          </table>
+        </div>
 
         <h2>I. Quy định về hệ thống biển báo</h2>
 
