@@ -1,0 +1,13 @@
+@media print {
+  button {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  #pdfArea {
+    width: 100%;
+  }
+}
