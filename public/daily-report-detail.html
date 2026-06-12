@@ -1,7 +1,25 @@
-<h1>Chi tiết báo cáo</h1>
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết báo cáo</title>
 
-<div id="reportContent"></div>
+    <link rel="stylesheet" href="css/report-detail.css" />
+  </head>
+  <body>
+    <main class="report-container">
+      <div class="top-bar">
+        <a href="old-daily-reports.html">
+          <button>← Quay lại</button>
+        </a>
 
-<button id="exportPdfBtn">Xuất PDF</button>
+        <button id="exportPdfBtn">Xuất PDF</button>
+      </div>
 
-<script type="module" src="js/pages/daily-report-detail.js"></script>
+      <div id="reportContent">Đang tải báo cáo...</div>
+    </main>
+
+    <script type="module" src="js/pages/daily-report-detail.js"></script>
+  </body>
+</html>
