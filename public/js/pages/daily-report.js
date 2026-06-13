@@ -26,11 +26,15 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   try {
-    const reportDate = document.getElementById("date").value;
+    const reportDate = (document.getElementById("date").value = new Date()
+      .toISOString()
+      .split("T")[0]);
 
     const checklistRows = document.querySelectorAll(".checklist-row");
 
     const checklist = [];
+
+    const now = new Date();
 
     checklistRows.forEach((row) => {
       checklist.push({
@@ -44,7 +48,9 @@ form.addEventListener("submit", async (e) => {
 
     await setDoc(doc(db, "daily-reports", reportDate), {
       date: reportDate,
-      time: document.getElementById("time").value,
+      time: (document.getElementById("time").value = now
+        .toTimeString()
+        .slice(0, 5)),
       location: document.getElementById("location").value.trim(),
       inspector: document.getElementById("inspector").value.trim(),
       unit: document.getElementById("unit").value.trim(),
@@ -61,4 +67,17 @@ form.addEventListener("submit", async (e) => {
     console.error("Save report error:", error);
     alert("Lỗi khi lưu báo cáo.");
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const now = new Date();
+
+  // Date: YYYY-MM-DD
+  const dateValue = now.toISOString().split("T")[0];
+  document.getElementById("date").value = dateValue;
+
+  // Time: HH:mm (24-hour)
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  document.getElementById("time").value = `${hours}:${minutes}`;
 });

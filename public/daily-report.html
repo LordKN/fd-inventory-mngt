@@ -14,11 +14,11 @@
         <div class="header-box">
           <div class="report-info">
             <p>
-              <strong>- Ngày:</strong> <input type="date" id="date" required />
+              <strong>- Ngày:</strong> <input type="date" id="date" readonly />
             </p>
             <p>
               <strong>- Thời gian:</strong>
-              <input type="time" id="time" required />
+              <input type="time" id="time" readonly />
             </p>
             <p>
               <strong>- Địa điểm:</strong>
@@ -552,6 +552,10 @@
       <button type="submit" form="dailyReportForm" id="submitBtn">
         Gửi báo cáo
       </button>
+
+      <a href="old-daily-reports.html">
+        <button>Xem báo cáo cũ</button>
+      </a>
     </main>
 
     <script type="module" src="js/pages/daily-report.js"></script>
