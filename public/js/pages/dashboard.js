@@ -1,3 +1,5 @@
+//Stay on index page once fail
+
 import { auth } from "../firebase/auth.js";
 
 import {
@@ -17,8 +19,8 @@ onAuthStateChanged(auth, (user) => {
   userInfo.textContent = `Xin chào, ${user.email}`;
 });
 
-logoutBtn.addEventListener("click", async() => {
-    await signOut(auth);
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
 
-    window.location.href = "index.html";
-})
+  window.location.href = "index.html";
+});

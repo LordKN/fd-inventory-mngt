@@ -1,7 +1,7 @@
 import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
+  getAuth /*creates authentication service*/,
+  GoogleAuthProvider /*creates Google login provider*/,
+  signInWithPopup /*Google login popup*/,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 

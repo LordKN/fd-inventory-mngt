@@ -1,12 +1,13 @@
 import { auth } from "../firebase/auth.js";
 import { db } from "../firebase/firestore.js";
 
+//Import authentication listener
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import {
-  doc,
-  setDoc,
-  serverTimestamp,
+  doc /*Create a reference to a Firestore document*/,
+  setDoc /*Write data to a document*/,
+  serverTimestamp /*Time at Google's server*/,
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 const form = document.getElementById("dailyReportForm");
@@ -30,6 +31,8 @@ form.addEventListener("submit", async (e) => {
       .toISOString()
       .split("T")[0]);
 
+    //querySelectorAll: select multiple elements (class ="...")
+    //getElementById: select 1 element
     const checklistRows = document.querySelectorAll(".checklist-row");
 
     const checklist = [];
@@ -69,6 +72,7 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+//Autofill the date and time when the filling started
 document.addEventListener("DOMContentLoaded", () => {
   const now = new Date();
 

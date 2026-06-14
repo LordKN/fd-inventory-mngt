@@ -11,6 +11,7 @@ const container = document.getElementById("reportsContainer");
 
 async function loadReports() {
   try {
+    //Access all of the daily reports
     const q = query(collection(db, "daily-reports"), orderBy("date", "desc"));
 
     const snapshot = await getDocs(q);
@@ -45,8 +46,11 @@ async function loadReports() {
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
+        //Create a variable to be saved locally and used for retrieving data on firebase db
         const selectedDate = button.dataset.date;
 
+        //Create/update a key-value pair
+        //This key is not a variable, but a key used by localStorage
         localStorage.setItem("selectedReportDate", selectedDate);
 
         window.location.href = "daily-report-detail.html";

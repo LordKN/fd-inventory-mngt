@@ -1,3 +1,5 @@
+//Login page, direct to dashboard upon successful login
+
 import { signInWithGoogle, checkAuthState } from "../firebase/auth.js";
 
 const loginButton = document.getElementById("googleLoginBtn");

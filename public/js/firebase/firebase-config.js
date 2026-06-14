@@ -1,3 +1,5 @@
+//Create Firebase application
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 
 const firebaseConfig = {

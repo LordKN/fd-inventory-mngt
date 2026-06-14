@@ -21,6 +21,7 @@ if (!reportDate) {
   throw new Error("Missing selected report date");
 }
 
+//Get the report from Firebase Store based on the date
 async function loadReport() {
   try {
     console.log("Loading report date:", reportDate);
